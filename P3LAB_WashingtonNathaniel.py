@@ -1,4 +1,6 @@
-# P3LAB_WashingtonNathaniel.py
+# Nathaniel Washington
+# 10/15/2024
+# P3LAB: Branching
 # This program calculates the number of dollars, quarters, dimes, nickels, and pennies
 # needed to make a given amount of money.
 
