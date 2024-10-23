@@ -6,6 +6,11 @@
 
 def main():
     money = float(input("Enter an amount of money as a float: $"))
+
+    if money == 0.00:
+        print("No coins are needed for $0.00.")
+        return
+
     total_cents = int(money * 100)
 
     coin_values = {
@@ -19,6 +24,7 @@ def main():
     for coin, value in coin_values.items():
         count = total_cents // value
         total_cents %= value
+        
         if count > 0:
             print(f"{count} {coin}{'s' if count > 1 else ''}")
 
