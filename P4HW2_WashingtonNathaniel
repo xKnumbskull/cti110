@@ -1,0 +1,66 @@
+# Nathaniel Washington
+# 11/09/2024
+# P4HW2_Salary
+# This program calculates the gross pay for multiple employees, including overtime,
+# and outputs the totals for overtime, regular pay, and gross pay.
+# Input: Employee name, hours worked, pay rate
+# Output: Employee details and calculated pay for each employee, plus totals
+
+# Initialize totals
+total_overtime_pay = 0
+total_regular_pay = 0
+total_gross_pay = 0
+num_employees = 0
+
+# Loop to process multiple employees
+while True:
+    # Get employee details
+    employee_name = input("Enter the name of the employee (or 'Done' to finish): ")
+
+    if employee_name.lower() == "done":
+        break
+
+    hours_worked = float(input(f"Enter the number of hours worked by {employee_name}: "))
+    pay_rate = float(input(f"Enter the pay rate for {employee_name}: "))
+
+    # Pay calculations
+    overtime_hours = 0
+    overtime_pay = 0
+    regular_hours_pay = 0
+
+    # Check for overtime
+    if hours_worked > 40:
+        overtime_hours = hours_worked - 40
+        overtime_pay = overtime_hours * (pay_rate * 1.5)
+        regular_hours_pay = 40 * pay_rate
+    else:
+        regular_hours_pay = hours_worked * pay_rate
+
+    # Calculate gross pay
+    gross_pay = regular_hours_pay + overtime_pay
+
+    # Update totals
+    total_overtime_pay += overtime_pay
+    total_regular_pay += regular_hours_pay
+    total_gross_pay += gross_pay
+    num_employees += 1
+
+    # Display individual employee results
+    print("\nEmployee Pay Details")
+    print("---------------------")
+    print(f'Employee Name:         {employee_name}')
+    print(f'Pay Rate:              ${pay_rate:.2f}')
+    print(f'Hours Worked:          {hours_worked:.2f}')
+    print(f'Overtime Hours:        {overtime_hours:.2f}')
+    print(f'Overtime Pay:          ${overtime_pay:.2f}')
+    print(f'Regular Hours Pay:     ${regular_hours_pay:.2f}')
+    print(f'Gross Pay:             ${gross_pay:.2f}')
+    print()
+
+# Final totals
+print("\nTotal Pay Information")
+print("----------------------")
+print(f"Total Number of Employees: {num_employees}")
+print(f"Total Overtime Pay:        ${total_overtime_pay:.2f}")
+print(f"Total Regular Pay:         ${total_regular_pay:.2f}")
+print(f"Total Gross Pay:           ${total_gross_pay:.2f}")
