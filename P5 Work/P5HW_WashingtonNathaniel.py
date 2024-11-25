@@ -1,9 +1,8 @@
-#Your Name
-#Date
-#Assignment Name: P5HW - MathQuiz
-#Brief description of program: This program is a math quiz that generates random addition or subtraction problems, 
-#                              allows the user to guess the answer, provides feedback on whether the guess is too high or too low, 
-#                              and displays a menu for user options.
+# Nathaniel Washington  
+# 11/24/2024
+# P5HW - MathQuiz
+# This program is a math quiz that generates random addition or subtraction problems,allows the user to guess the answer, 
+# provides feedback on whether the guess is too high or too low, and displays a menu for user options.
 
 import random
 
