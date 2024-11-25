@@ -1,0 +1,43 @@
+# Nathaniel Washington
+# 11/14/2024
+# P5LAB: Self-Checkout Machine
+# This program simulates a self-checkout machine where the customer enters the amount of cash to pay for a random purchase. 
+# It calculates the change and breaks it down into dollars, quarters, dimes, nickels, and pennies.
+
+import random
+
+def main():
+    # Generate a random purchase amount (owed amount)
+    owed_amount = round(random.uniform(0.01, 100.00), 2)
+
+    # Display the owed amount
+    print(f"Total amount owed: ${owed_amount:.2f}")
+
+    # Prompt user for the amount of cash they will pay
+    cash_paid = float(input("Enter the amount of cash you will pay: $"))
+
+    # Calculate change owed
+    if cash_paid < owed_amount:
+        print("Insufficient cash. Please enter a valid amount.")
+        return
+
+    change_owed = cash_paid - owed_amount
+    print(f"Change owed: ${change_owed:.2f}")
+
+    # Convert change to cents
+    total_cents = int(round(change_owed * 100))
+
+    # Coins in currency (dollars, quarters, dimes, nickels, pennies)
+    coin_values = [100, 25, 10, 5, 1]
+    coin_names = ["Dollars", "Quarters", "Dimes", "Nickels", "Pennies"]
+
+    # Loop through each coin type
+    for value, name in zip(coin_values, coin_names):
+        count = total_cents // value
+        total_cents %= value
+
+        if count > 0:
+            print(f"{count} {name}{'s' if count > 1 else ''}")
+
+if __name__ == "__main__":
+    main()
